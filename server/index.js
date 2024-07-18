@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 import { postSingup, postLogin } from './controllers/user.js';
-import { postTransaction, getTransactions } from './controllers/transaction.js'
+import { postTransaction, getTransactions, deleteTransaction } from './controllers/transaction.js'
 
 //connect to MongoDB
 
@@ -33,6 +33,7 @@ app.post("/login", postLogin)
 
 app.post("/transaction", postTransaction)
 app.get("/transactions", getTransactions)
+app.delete("/transaction/:id", deleteTransaction)
 
 const PORT = process.env.PORT || 5000;
 
